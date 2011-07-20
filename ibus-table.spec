@@ -19,6 +19,7 @@ The Table engine for IBus platform.
 %package devel
 Summary:	Development files for ibus-table
 Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release
 Requires:	pkgconfig
 
 %description devel
