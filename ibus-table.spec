@@ -9,6 +9,7 @@ Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	ibus-devel > 1.3.0
 Requires:	ibus > 1.3.0
+Requires:	python-modules-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
