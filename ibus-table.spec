@@ -1,7 +1,7 @@
 Summary:	The Table engine for IBus platform
 Name:		ibus-table
 Version:	1.3.0.20100621
-Release:	0.1
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
