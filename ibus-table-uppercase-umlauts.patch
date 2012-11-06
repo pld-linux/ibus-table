@@ -1,0 +1,16 @@
+diff -ru ibus-table-1.3.9.20120904.orig/engine/tabdict.py ibus-table-1.3.9.20120904/engine/tabdict.py
+--- ibus-table-1.3.9.20120904.orig/engine/tabdict.py	2012-09-03 16:51:59.000000000 +0200
++++ ibus-table-1.3.9.20120904/engine/tabdict.py	2012-09-04 14:50:32.186626109 +0200
+@@ -54,7 +54,10 @@
+     # for translit
+     gen_uni('ä'):95,
+     gen_uni('ö'):96,
+-    gen_uni('ü'):97
++    gen_uni('ü'):97,
++    gen_uni('Ä'):98,
++    gen_uni('Ö'):99,
++    gen_uni('Ü'):100
+     }
+ 
+ tab_key_list = tab_dict.keys()
+ibus-table-1.3.9.20120904/engineだけに発見: tabdict.py.~1~

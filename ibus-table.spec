@@ -1,14 +1,15 @@
 Summary:	The Table engine for IBus platform
 Name:		ibus-table
-Version:	1.3.0.20100621
+Version:	1.4.99.20121012
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	0fd5812197400f7b586480fca1a0c082
+# Source0-md5:	d5024b4cb879cba665927246fb142d0c
+Patch0:		ibus-table-uppercase-umlauts.patch
 URL:		http://code.google.com/p/ibus/
-BuildRequires:	ibus-devel > 1.3.0
-Requires:	ibus > 1.3.0
+BuildRequires:	ibus-devel > 1.4.99
+Requires:	ibus > 1.4.99
 Requires:	python-modules-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,6 +29,7 @@ Development files for ibus-table.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
