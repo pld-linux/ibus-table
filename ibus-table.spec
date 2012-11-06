@@ -1,16 +1,22 @@
 Summary:	The Table engine for IBus platform
+Summary(pl.UTF-8):	Silnik Table dla platformy IBus
 Name:		ibus-table
 Version:	1.4.99.20121012
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
+#Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	d5024b4cb879cba665927246fb142d0c
 Patch0:		ibus-table-uppercase-umlauts.patch
 URL:		http://code.google.com/p/ibus/
+BuildRequires:	gettext-devel >= 0.16.1
 BuildRequires:	ibus-devel > 1.4.99
+BuildRequires:	python >= 1:2.5
 Requires:	ibus > 1.4.99
-Requires:	python-modules-sqlite
+Requires:	%{name}-engine = %{version}-%{release}
+Requires:	ibus >= 1.3.0
+Requires:	python-dbus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
@@ -18,14 +24,33 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The Table engine for IBus platform.
 
+%description -l pl.UTF-8
+Silnik Table dla platformy IBus.
+
+%package engine
+Summary:	IBus Table engine
+Summary(pl.UTF-8):	Silnik IBus Table
+Group:		Applications/Text
+Requires:	python-modules >= 1:2.5
+Requires:	python-modules-sqlite >= 1:2.5
+
+%description engine
+IBus Table engine.
+
+%description engine -l pl.UTF-8
+Silnik IBus Table.
+
 %package devel
 Summary:	Development files for ibus-table
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	pkgconfig
+Summary(pl.UTF-8):	Pliki programistyczne dla ibus-table
+Group:		Development/Tools
+Requires:	%{name}-engine = %{version}-%{release}
 
 %description devel
 Development files for ibus-table.
+
+%description devel -l pl.UTF-8
+Pliki programistyczne dla ibus-table.
 
 %prep
 %setup -q
@@ -48,17 +73,18 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING README
-%attr(755,root,root) %{_bindir}/%{name}-createdb
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libexecdir}/ibus-engine-table
-%dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/engine
-%dir %{_datadir}/%{name}/tables
-%dir %{_datadir}/%{name}/icons
-%dir %{_datadir}/%{name}/data
 %{_datadir}/ibus/component/table.xml
+%{_datadir}/%{name}/engine/factory.py
+%{_datadir}/%{name}/engine/factory.pyc
+%{_datadir}/%{name}/engine/factory.pyo
+%{_datadir}/%{name}/engine/main.py
+%{_datadir}/%{name}/engine/main.pyc
+%{_datadir}/%{name}/engine/main.pyo
+%dir %{_datadir}/%{name}/icons
 %{_datadir}/%{name}/icons/%{name}.svg
 %{_datadir}/%{name}/icons/full-letter.svg
 %{_datadir}/%{name}/icons/full-punct.svg
@@ -77,13 +103,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/icons/scb-mode.svg
 %{_datadir}/%{name}/icons/tc-mode.svg
 %{_datadir}/%{name}/icons/tcb-mode.svg
+
+%files engine -f %{name}.lang
+%defattr(644,root,root,755)
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/data
 %{_datadir}/%{name}/data/pinyin_table.txt.bz2
-%{_datadir}/%{name}/engine/factory.py
-%{_datadir}/%{name}/engine/factory.pyc
-%{_datadir}/%{name}/engine/factory.pyo
-%{_datadir}/%{name}/engine/main.py
-%{_datadir}/%{name}/engine/main.pyc
-%{_datadir}/%{name}/engine/main.pyo
+%dir %{_datadir}/%{name}/engine
 %{_datadir}/%{name}/engine/tabcreatedb.py
 %{_datadir}/%{name}/engine/tabcreatedb.pyc
 %{_datadir}/%{name}/engine/tabcreatedb.pyo
@@ -96,8 +122,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/engine/tabsqlitedb.py
 %{_datadir}/%{name}/engine/tabsqlitedb.pyc
 %{_datadir}/%{name}/engine/tabsqlitedb.pyo
+%dir %{_datadir}/%{name}/tables
 %{_datadir}/%{name}/tables/template.txt
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/%{name}-createdb
 %{_pkgconfigdir}/%{name}.pc
