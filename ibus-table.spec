@@ -57,8 +57,7 @@ Pliki programistyczne dla ibus-table.
 %patch0 -p1
 
 %build
-%configure \
-	--disable-additional
+%configure
 
 %{__make}
 
