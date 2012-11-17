@@ -1,13 +1,13 @@
 Summary:	The Table engine for IBus platform
 Summary(pl.UTF-8):	Silnik Table dla platformy IBus
 Name:		ibus-table
-Version:	1.4.99.20121012
+Version:	1.4.99.20121112
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	d5024b4cb879cba665927246fb142d0c
+# Source0-md5:	85c3a57bcbb052d3222c5b6d07e0e565
 Patch0:		ibus-table-uppercase-umlauts.patch
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	gettext-devel >= 0.16.1
