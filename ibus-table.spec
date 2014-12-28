@@ -10,7 +10,7 @@ Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	6f46912e52bf683fa1177787507205f5
 Patch0:		ibus-table-uppercase-umlauts.patch
 URL:		http://code.google.com/p/ibus/
-BuildRequires:	gettext-devel >= 0.16.1
+BuildRequires:	gettext-tools >= 0.16.1
 BuildRequires:	ibus-devel > 1.4.99
 BuildRequires:	python >= 1:2.5
 Requires:	ibus > 1.4.99
