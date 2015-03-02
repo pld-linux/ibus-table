@@ -2,7 +2,7 @@ Summary:	The Table engine for IBus platform
 Summary(pl.UTF-8):	Silnik Table dla platformy IBus
 Name:		ibus-table
 Version:	1.5.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
