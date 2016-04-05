@@ -11,13 +11,15 @@ Source0:	https://github.com/kaio/ibus-table/releases/download/%{version}/%{name}
 # Source0-md5:	7f4f9474d3024f627e995397e9e5ce70
 URL:		https://github.com/kaio/ibus-table
 BuildRequires:	gettext-tools >= 0.16.1
-BuildRequires:	ibus-devel > 1.4.99
+BuildRequires:	ibus-devel > 1.5.0
 BuildRequires:	python3 >= 1:3.3
 BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	sed >= 4.0
 Requires:	%{name}-engine = %{version}-%{release}
-Requires:	ibus >= 1.4.99
-Requires:	python-pygobject3 >= 3.0
+Requires:	ibus >= 1.5.0
+Requires:	python3-ibus >= 1.5.0
+Requires:	python3-modules >= 1:3.3
+Requires:	python3-pygobject3 >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
