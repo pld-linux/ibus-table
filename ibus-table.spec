@@ -75,6 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{pt_PT,pt}
+
 %find_lang %{name}
 
 %clean
