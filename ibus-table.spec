@@ -24,6 +24,9 @@ Requires:	python3-modules >= 1:3.6
 Requires:	python3-pygobject3 >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# no binaries; not noarch because of ibus module dir
+%define		_enable_debug_packages	0
+
 %define		_libexecdir	%{_libdir}/ibus
 
 %description
